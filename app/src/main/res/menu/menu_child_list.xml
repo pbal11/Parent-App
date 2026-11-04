@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add_child_button_for_child_list"
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:title="@string/add_child_button_text_for_toolbar"
+        app:showAsAction="always"/>
+
+</menu>

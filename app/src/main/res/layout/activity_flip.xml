@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorPrimary"
+    tools:context="main.ui.FlipActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.ParentApp.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/Theme.ParentApp.PopupOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="?colorOnPrimary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/lbl_current"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        android:autoSizeMaxTextSize="100dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeStepGranularity="1dp"
+        android:autoSizeTextType="uniform"
+        android:elegantTextHeight="true"
+        android:freezesText="false"
+        android:gravity="center_vertical|end"
+        android:text="@string/current_child_tv_string"
+        android:textColor="?colorOnPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lbl_previous"
+        app:layout_constraintEnd_toStartOf="@+id/coin_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <Spinner
+        android:id="@+id/sp_current_child"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:background="?colorPrimary"
+        android:dropDownWidth="wrap_content"
+        android:dropDownSelector="@drawable/drop_down_arrow"
+        android:popupBackground="?colorPrimaryVariant"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_current"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lbl_current"
+        app:layout_constraintTop_toTopOf="@+id/lbl_current" />
+
+    <TextView
+        android:id="@+id/lbl_previous"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:autoSizeMaxTextSize="100dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeStepGranularity="1dp"
+        android:autoSizeTextType="uniform"
+
+        android:elegantTextHeight="true"
+        android:freezesText="false"
+        android:gravity="center_vertical|end"
+        android:text="@string/previous_child_tv_string"
+        android:textAllCaps="false"
+        android:textColor="?colorOnPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/coin_image_top_guideline"
+        app:layout_constraintEnd_toEndOf="@+id/lbl_current"
+        app:layout_constraintStart_toStartOf="@+id/lbl_current"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_current" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/coin_image_top_guideline"
+        app:layout_constraintEnd_toEndOf="@+id/sp_current_child"
+        app:layout_constraintStart_toStartOf="@+id/sp_current_child"
+        app:layout_constraintTop_toTopOf="@+id/lbl_previous">
+
+        <ImageView
+            android:id="@+id/iv_prev_child"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/previous_child_image"
+            android:foregroundGravity="left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/guide_prev_child"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/child_image_icon" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_prev_child"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_begin="160dp"
+            app:layout_constraintGuide_percent=".25" />
+
+        <TextView
+            android:id="@+id/tv_prev_child"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeMaxTextSize="100dp"
+            android:autoSizeMinTextSize="12dp"
+            android:autoSizeStepGranularity="2dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guide_prev_child"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/coin_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/image_of_a_coin"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/coin_image_bottom_guideline"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coin_image_top_guideline"
+        app:srcCompat="@drawable/heads"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/tell_user_choose_heads_tails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="8dp"
+        android:autoSizeMaxTextSize="100dp"
+        android:autoSizeMinTextSize="12dp"
+        android:autoSizeStepGranularity="2dp"
+
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:text="@string/which_side_do_you_think_it_will_land_on"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/tell_user_choose_heads_tails_bottom_guideline"
+        app:layout_constraintEnd_toEndOf="@+id/user_choice_tails_button"
+        app:layout_constraintStart_toStartOf="@+id/user_choice_heads_button"
+        app:layout_constraintTop_toBottomOf="@+id/coin_image_bottom_guideline" />
+
+    <Button
+        android:id="@+id/user_choice_heads_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:autoSizeMaxTextSize="100dp"
+        android:autoSizeMinTextSize="12dp"
+        android:autoSizeStepGranularity="1dp"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/heads"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/coin_flip_button_top_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/user_choice_tails_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tell_user_choose_heads_tails_bottom_guideline" />
+
+    <Button
+        android:id="@+id/user_choice_tails_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/tails"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/user_choice_heads_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_choice_heads_button"
+        app:layout_constraintTop_toTopOf="@+id/user_choice_heads_button" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/tell_user_choose_heads_tails_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+
+    <ImageButton
+        android:id="@+id/flip_coin_image_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/image_of_coin_flip_to_start_animation"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/coin_flip_button_bottom_guideline"
+        app:layout_constraintDimensionRatio="0.85:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coin_flip_button_top_guideline"
+        app:srcCompat="@drawable/coin_flip_image" />
+
+    <Button
+        android:id="@+id/flip_history_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:padding="5dp"
+        android:text="@string/history_of_flips"
+        android:textColor="?colorOnPrimary"
+        app:layout_constraintBottom_toTopOf="@id/flip_history_button_bottom_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/coin_flip_button_bottom_guideline" />
+
+    <TextView
+        android:id="@+id/heads_tails_text_after_flip"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:textColor="?colorPrimaryVariant"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="@+id/coin_image_view"
+        app:layout_constraintEnd_toEndOf="@+id/coin_image_view"
+        app:layout_constraintStart_toStartOf="@+id/coin_image_view"
+        app:layout_constraintTop_toTopOf="@+id/coin_image_view" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/coin_image_top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.21" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/coin_image_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/coin_flip_button_top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/coin_flip_button_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8578372" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/flip_history_button_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
